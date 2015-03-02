@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">Abyssable</string>
+    <string name="edit_message">Andale!</string>
+    <string name="action_settings">Settingcion</string>
+    <string name="button_send">Trimitar!</string>
+    <string name="title_activity_display_message">Abratar</string>
+    <string name="hello_world">Holla Mundo!</string>
+</resources>
