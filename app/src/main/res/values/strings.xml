@@ -7,4 +7,8 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="button_send2">SendLandscape!</string>
+    <string name="Recording">Android Audio Recording Application</string>
+    <string name="start">start</string>
+    <string name="stop">stop</string>
+    <string name="play">play</string>
 </resources>
