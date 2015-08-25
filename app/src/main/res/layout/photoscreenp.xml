@@ -58,7 +58,7 @@
                             android:layout_width="41dp"
                             android:layout_height="50dp"
                             android:id="@+id/btnback"
-                            android:src="@drawable/ic_launcher"
+                            android:src="@drawable/reset"
                             android:background="@android:color/transparent"
                             android:layout_marginLeft="10dp"
                             android:layout_weight="0.10"/>
