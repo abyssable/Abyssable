@@ -25,7 +25,9 @@ import android.os.Environment;
 
 public class DisplayMessageActivity extends ActionBarActivity {
 
+    static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int REQUEST_TAKE_PHOTO = 0x7712;
+    String mCurrentPhotoPath;
     private MediaRecorder myAudioRecorder;
     private String outputFile = null;
     private Button start,stop,play;
@@ -55,6 +57,7 @@ private String currentFileName;
 
 
     }
+
     public void start(View view){
         try {
             currentFileName = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -76,6 +79,7 @@ private String currentFileName;
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        start.setEnabled(false);
         stop.setEnabled(true);
         Toast.makeText(getApplicationContext(), "Recording started", Toast.LENGTH_LONG).show();
 
@@ -136,8 +140,6 @@ private String currentFileName;
         return super.onOptionsItemSelected(item);
     }
 
-    static final int REQUEST_IMAGE_CAPTURE = 1;
-
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Ensure that there's a camera activity to handle the intent
@@ -168,8 +170,6 @@ private String currentFileName;
         if (requestCode == 0x7712)
             stop();
     }
-
-    String mCurrentPhotoPath;
 
     private File createImageFile() throws IOException {
         // Create an image file name
