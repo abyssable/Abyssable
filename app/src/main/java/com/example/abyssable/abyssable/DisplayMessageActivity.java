@@ -29,6 +29,7 @@ public class DisplayMessageActivity extends ActionBarActivity {
     private MediaRecorder myAudioRecorder;
     private String outputFile = null;
     private Button start,stop,play;
+private String currentFileName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,18 +52,21 @@ public class DisplayMessageActivity extends ActionBarActivity {
 
         stop.setEnabled(false);
         play.setEnabled(false);
-        outputFile = Environment.getExternalStorageDirectory().
-                getAbsolutePath() + "/myrecording.3gp";;
 
-        myAudioRecorder = new MediaRecorder();
-        myAudioRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
-        myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
-        myAudioRecorder.setOutputFile(outputFile);
 
     }
     public void start(View view){
         try {
+            currentFileName = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+            outputFile = Environment.getExternalStoragePublicDirectory(
+                    Environment.DIRECTORY_PICTURES).
+                    getAbsolutePath() + "/"+currentFileName+".3gp";
+
+            myAudioRecorder = new MediaRecorder();
+            myAudioRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
+            myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+            myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
+            myAudioRecorder.setOutputFile(outputFile);
             myAudioRecorder.prepare();
             myAudioRecorder.start();
         } catch (IllegalStateException e) {
@@ -72,9 +76,10 @@ public class DisplayMessageActivity extends ActionBarActivity {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        start.setEnabled(false);
         stop.setEnabled(true);
         Toast.makeText(getApplicationContext(), "Recording started", Toast.LENGTH_LONG).show();
+
+
 
         dispatchTakePictureIntent();
 
@@ -168,12 +173,10 @@ public class DisplayMessageActivity extends ActionBarActivity {
 
     private File createImageFile() throws IOException {
         // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
         File storageDir = Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(
-                imageFileName,  /* prefix */
+                currentFileName,  /* prefix */
                 ".jpg",         /* suffix */
                 storageDir      /* directory */
         );
