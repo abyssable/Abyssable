@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:weightSum="1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="267dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+            <ImageButton
+                android:layout_width="79dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton3"
+                android:src="@drawable/reset"
+                android:nestedScrollingEnabled="false"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="5dp"
+                android:contentDescription="resetSettings"
+                android:clickable="true"
+                style="@style/Widget.AppCompat.ActionButton"/>
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageButton4"
+                android:src="@drawable/help"
+                android:layout_marginLeft="220dp"
+                android:contentDescription="help"
+                android:adjustViewBounds="false"
+                android:baselineAlignBottom="false"
+                android:clickable="true"
+                style="@style/Widget.AppCompat.ActionButton"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New RadioButton"
+                    android:id="@+id/radioButton"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New RadioButton"
+                    android:id="@+id/radioButton2"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</LinearLayout>
